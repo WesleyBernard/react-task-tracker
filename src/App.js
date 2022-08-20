@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import { useState } from "react";
+import {logDOM} from "@testing-library/react";
 function App() {
     const [tasks, setTasks] = useState([
         {
@@ -30,8 +31,11 @@ function App() {
 
     //toggle reminder
     const toggleReminder = (id) => {
-        setTasks(tasks.map((task) => task.id === id ? { ...task, remainder: !task.remainder} : task))
+        setTasks(tasks.map((task) => task.id === id ? { ...task, reminder: !task.reminder} : task))
+
     }
+
+
   return (
     <div className="container">
       <Header />
